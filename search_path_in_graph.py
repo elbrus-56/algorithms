@@ -33,7 +33,7 @@ def find_path(graph, start, end, path=[]):
                     return newpath
     return None
 
-print(find_path(graph, 'cab', 'bat'))
+# print(find_path(graph, 'cab', 'bat'))
 
 
 # Функция, которая ищет все пути с помощью рекурсии
@@ -53,5 +53,5 @@ def find_all_paths(graph, start, end, path=[]):
                     paths.append(newpath)
     return paths
 
-# for i in enumerate(find_all_paths(graph, 'cab', 'bat'), start=1):
-#     print(i)
+for i in enumerate(find_all_paths(graph, 'cab', 'bat'), start=1):
+    print(i)

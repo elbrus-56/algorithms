@@ -1,3 +1,20 @@
+""" 
+Поиск в ширину. 
+Поиск в ширину вычисляет кратчайший путь в невзвешенном графе.
+
+Применяется для:
+- определения кратчайших путей и минимальных остовных деревьев;
+- индексации веб-страниц поисковыми ботами;
+- поиска в соцсетях;
+- нахождения доступных соседних узлов в одноуровневых сетях, таких как BitTorrent.
+
+Функция перебирает все узлы графа, пока не дойдет до конца, либо пока не выполнится 
+условие.
+Функция не проверяет дважды один и тот же элемент списка.
+
+"""
+
+
 from collections import deque 
 search_queue = deque()
 
@@ -12,35 +29,34 @@ graph["bat"] = []
 
 
 
-""" 
-Поиск в ширину. Функция перебирает все узлы графа, пока не выполнится условие, 
-либо пока есть, что перебирать. В данном случае используется "очередь" deque(). В качестве
-опорной точки выступает нулевой элемент списка deque(), и он сравнивается с заданным условием.
-Функция не проверяет дважды один и тот же элемент списка.
-
-"""
-
-def search_queue(start, end):
+def search_queue(start):
     search_queue = deque()
     search_queue += graph[start]
-    searched = []
+    visited = [start]
 
     while search_queue:
         object_name = search_queue.popleft()
-        if not object_name in searched:
-            if end == object_name:
-                return "Это то, что нам нужно!"
-            else:
+        if not object_name in visited:
                 search_queue += graph[object_name]
-                search_queue.append(object_name)
-    return False
+                visited.append(object_name)
+    return visited
                 
 
-print(search_queue("cab", "bat"))
+print(search_queue("cab"))
 
 
+def bfs(graph, node):
+    visited = [node]
+    queue = [node]
+    while queue:
+        s = queue.pop(0)
+        for neighbour in graph[s]:
+            if neighbour not in visited:
+                visited.append(neighbour)
+                queue.append(neighbour)
+    return visited
 
-
+print(bfs(graph, 'cab'))
 
 
 
