@@ -1,5 +1,6 @@
 """
-1. За опорную точку берется первое значение массива, это значение сравнивается со всеми
+1. За опорную точку берется первое значение массива, это значение сравнивается
+ со всеми
 остальными значениями этого массива и ищется максимум или мининимум.
 2. Найденное значение меняется местами с первым элементом.
 3. А дальше все заново с пункта 1.
@@ -10,6 +11,7 @@
 
 # Вариант 1
 
+
 def selection_sort(nums):
     # Значение i соответствует кол-ву отсортированных значений
     for i in range(len(nums)-1):
@@ -18,18 +20,16 @@ def selection_sort(nums):
         # Этот цикл перебирает несортированные элементы
         for j in range(i + 1, len(nums)):
             if nums[j] < nums[smallest]:
-                print(nums[smallest], "на" ,nums[j])
                 smallest = j
         # Самый маленький элемент меняем с первым в списке
         nums[i], nums[smallest] = nums[smallest], nums[i]
-    
+
 
 # Проверяем, что оно работает
 random_list_of_nums = [12, 3, 13, 7, 20]
 
 selection_sort(random_list_of_nums)
 # print(random_list_of_nums)
-
 
 
 # Вариант 2
@@ -44,12 +44,14 @@ def find_smallest(arr):
             smallest_index = i
     return smallest_index
 
+
 def selection_sort(arr):
     new_arr = []
     for i in range(len(arr)):
         smallest = find_smallest(arr)
         new_arr.append(arr.pop(smallest))
     return new_arr
+
 
 arr = [11, 3, -3, 1, -4]
 # print(selection_sort(arr))
