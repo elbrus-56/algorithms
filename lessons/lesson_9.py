@@ -5,29 +5,29 @@
 Сортировка называется устойчивой, если она не меняет порядок равных элементов
 """
 
-# def merge(A:list, B:list):
-#     C = [0] * (len(A) + len(B))
-#     i = k = n = 0
-#     while i < len(A) and k < len(B):
-#         if A[i] <= B[k]:
-#             C[n] = A[i]
-#             i += 1
-#             n += 1
-#         else:
-#             C[n] = B[k]
-#             k += 1
-#             n += 1
-#     while i < len(A):
-#         C[n] = A[i]
-#         i += 1
-#         n += 1
-#     while k < len(B):
-#         C[n] = A[k]
-#         k += 1
-#         n += 1
-#     return C
+def merge(A:list, B:list):
+    C = [0] * (len(A) + len(B))
+    i = k = n = 0
+    while i < len(A) and k < len(B):
+        if A[i] <= B[k]:
+            C[n] = A[i]
+            i += 1
+            n += 1
+        else:
+            C[n] = B[k]
+            k += 1
+            n += 1
+    while i < len(A):
+        C[n] = A[i]
+        i += 1
+        n += 1
+    while k < len(B):
+        C[n] = A[k]
+        k += 1
+        n += 1
+    return C
 
-# print(merge([2,4,9], [1,4,6,8]))
+print(merge([2,4,99], [1,4,6,8]))
 
 
 def merge_1(A: list, B: list):
@@ -49,7 +49,7 @@ def merge_1(A: list, B: list):
     return C
 
 
-print(merge_1([2, 4, 9], [4, 6, 8]))
+print(merge_1([2, 4, 11], [4, 6, 8]))
 
 
 # Сортировка слиянием с помощью рекурсии
@@ -79,7 +79,7 @@ def merge_sort_1(A):
     return merge_1(L, R)
 
 
-print(merge_sort_1([4, 2, 5, 6, 6, 3, 9, 7]))
+# print(merge_sort_1([4, 2, 5, 6, 6, 3, 9, 7]))
 
 
 # Быстрая сортировка Тони Хоара
@@ -108,7 +108,7 @@ def quick_sort(A):
     return A
 
 
-print(quick_sort([4, 2, 5, 6, 6, 3, 9, 7]))
+# print(quick_sort([4, 2, 5, 6, 6, 3, 9, 7]))
 
 
 # Проверка списка на отсортированность за время О(n)
@@ -123,4 +123,4 @@ def check_sort(A, ascending=False):
     return flag
 
 
-print(check_sort([1, 2, 3, 4, 5]))
+# print(check_sort([1, 2, 3, 4, 5]))
